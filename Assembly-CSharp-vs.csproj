@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{F48829FB-07E4-58B7-D2B1-4204DA062D60}</ProjectGuid>
+	<ProjectGuid>{C143CC4F-08AF-FB37-DE60-EEEA6CE1F4F3}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,11 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerMovement.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{E304BBBD-62AF-D100-207F-D41FCF03572D}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+     <Compile Include="Assets\Scripts\CameraLook.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <None Include="Assets\CactusPack\Shaders\VertexBlend.shader" />
+     <None Include="Assets\CactusPack\Readme.txt" />
+     <None Include="Assets\CactusPack\Shaders\Basic_Rimlight.shader" />
+     <None Include="Assets\CactusPack\Shaders\VertexBlend_Old.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
