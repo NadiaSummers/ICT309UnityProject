@@ -34,10 +34,12 @@ public class PlayerMovement : MonoBehaviour {
 			yVelocity -= gravity;
 		}
 
+
 		velocity.y = yVelocity;
 
 
 		velocity = transform.TransformDirection (velocity);
 		controller.Move (velocity * Time.deltaTime);
 	}
+
 }
