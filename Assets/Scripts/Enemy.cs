@@ -6,11 +6,13 @@ public class Enemy : MonoBehaviour
 
 		Transform player;
 		CharacterController controller;
+		Vector3 initialPosition;
+
 		public float moveSpeed = 10.0f;
 		public float gravity = 0.7f;
 		private float yVelocity = 0.0f;
 
-		public float sightRange = 30.0f;
+		public float sightRange = 40.0f;
 		public float attackRange = 5.0f;
 		public int attackDamage = 20;
 
@@ -27,7 +29,9 @@ public class Enemy : MonoBehaviour
 				GameObject playerGameObject = GameObject.FindGameObjectWithTag ("Player");
 				player = playerGameObject.transform;
 
+
 				controller = GetComponent<CharacterController> ();
+				initialPosition = transform.position;
 
 				animation = GetComponentInChildren<Animation> ();
 				animation ["Run"].wrapMode = WrapMode.Loop;
@@ -56,10 +60,22 @@ public class Enemy : MonoBehaviour
 		
 				direction.y = 0;
 
-				if (distance >= sightRange) {
+				float homeDistance = Vector3.Distance (initialPosition, transform.position);
+
+				if (distance >= sightRange && homeDistance <= 2) {
 						animation.Play ("Idle_01");
 						targetInRange = false;
 				}
+				else if (distance >= sightRange && homeDistance > 2){
+						animation.Play ("Run");
+						targetInRange = false;
+						direction = initialPosition - transform.position;
+						direction.Normalize ();
+						velocity = direction * moveSpeed;
+						transform.rotation = Quaternion.LookRotation (direction);
+						controller.Move (velocity * Time.deltaTime);
+
+		}
 				else {
 						if (distance <= attackRange)
 							targetInRange = true;
