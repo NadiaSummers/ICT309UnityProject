@@ -15,10 +15,6 @@ public class CoinPickup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//TODO
-		//check for collision w/ player
-			//add to score
-			//remove object from world
 	}
 
 	void OnTriggerEnter(Collider other)

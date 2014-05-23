@@ -28,6 +28,8 @@ public class Health : MonoBehaviour {
 
 	public bool IsDead { get{ return currentHealth <= 0; } }
 
+
+
 	override public string ToString()
 	{
 		return currentHealth + "/" + maxHealth;

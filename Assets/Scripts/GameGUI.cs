@@ -28,5 +28,6 @@ public class GameGUI : MonoBehaviour {
 				}
 		GUI.Label(new Rect(5,5,100,100), "Health: " + playerHealth);
 		GUI.Label(new Rect(5,20,100,100), "Score: " + playerScore);
+		GUI.Label (new Rect(5, 35, 100, 100), "Friends: " + playerScore.displayFriends());
 	}
 }
