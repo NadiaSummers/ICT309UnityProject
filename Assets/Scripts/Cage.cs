@@ -16,13 +16,32 @@ public class Cage : MonoBehaviour {
 		
 	}
 	
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
 	{
 		if(other.tag == "Player")
 		{
-			Score playerScore = player.GetComponent<Score> ();
-			playerScore.addFriend();
-			Destroy(gameObject);
+			if(Input.GetKeyDown("e"))
+			{
+				Score playerScore = player.GetComponent<Score> ();
+				playerScore.addFriend();
+				Destroy(gameObject);
+			}
 		}
 	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Player") {
+			//sends message to the GameGUI class. (attached to player)
+			player.SendMessageUpwards("IsNearCage", true);
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.tag == "Player") {
+			player.SendMessage("IsNearCage", false);
+		}
+	}
+	
 }
