@@ -35,9 +35,10 @@ public class GameGUI : MonoBehaviour {
 	{
 		if (playerHealth.IsDead) {
 			GUI.DrawTexture(new Rect((Screen.width - gameOverImage.width) / 2, (Screen.height - gameOverImage.height) / 2, gameOverImage.width, gameOverImage.height), gameOverImage);
-				}
-		if (isNearCage)
-			GUI.Label (new Rect (Screen.width / 2 - 90, Screen.height /2 + 70, 200, 20), " " + toOpenCage);
+		}
+		if (isNearCage) {
+			GUI.Label (new Rect (Screen.width / 2 - 90, Screen.height / 2 + 70, 200, 20), " " + toOpenCage);
+		}
 
 		GUI.Label(new Rect(5, 5, 100, 100), "Health: " + playerHealth);
 		GUI.Label(new Rect(5, 20, 100, 100), "Score: " + playerScore);
