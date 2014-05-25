@@ -5,13 +5,11 @@ public class Health : MonoBehaviour {
 
 	public int maxHealth = 100;
 	private int currentHealth = 0;
-	private int lastHealth = 0;
 	private bool hasTakenDamage = false;
 
 	// Use this for initialization
 	void Start () {
 		currentHealth = maxHealth;
-		lastHealth = maxHealth;
 
 	}
 	
