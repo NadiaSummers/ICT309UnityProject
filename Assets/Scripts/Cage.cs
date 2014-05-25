@@ -35,8 +35,6 @@ public class Cage : MonoBehaviour {
 		if (other.tag == "Player") {
 			//sends message to the GameGUI class. (attached to player)
 			player.SendMessage("IsNearCage", true);
-
-
 		}
 	}
 
