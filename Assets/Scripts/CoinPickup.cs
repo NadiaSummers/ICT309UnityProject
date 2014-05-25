@@ -23,7 +23,7 @@ public class CoinPickup : MonoBehaviour {
 		{
 			Score playerScore = player.GetComponent<Score> ();
 			playerScore.addScore (coinValue);
-			Destroy(gameObject);
+			Destroy(this.gameObject);
 		}
 	}
 }
