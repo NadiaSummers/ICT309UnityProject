@@ -112,6 +112,8 @@ public class Enemy : MonoBehaviour
 												Health playerHealth = player.GetComponent<Health> ();
 												playerHealth.Damage (attackDamage);
 												attackDelay = Time.time + attackSpeed;
+												doGravity ();
+												transform.rotation = Quaternion.LookRotation (direction);
 												//Debug.Log("Troll Smash!");
 									
 										}
