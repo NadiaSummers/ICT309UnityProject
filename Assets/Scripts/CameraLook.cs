@@ -13,10 +13,15 @@ public class CameraLook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		mouseX = Input.GetAxis ("Mouse X");
+		if (Time.timeScale == 0) {
+			//we're paused, so don't update the camera.
+		}
+		else {
+			mouseX = Input.GetAxis ("Mouse X");
 
-		Vector3 rotation = transform.localEulerAngles;
-		rotation.y += mouseX * mouseSensitivity;
-		transform.localEulerAngles = rotation;
+			Vector3 rotation = transform.localEulerAngles;
+			rotation.y += mouseX * mouseSensitivity;
+			transform.localEulerAngles = rotation;
+		}
 	}
 }
