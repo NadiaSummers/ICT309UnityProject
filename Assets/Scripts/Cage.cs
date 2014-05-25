@@ -16,13 +16,16 @@ public class Cage : MonoBehaviour {
 		
 	}
 
+	//when player rescues friend!
 	void OnTriggerStay(Collider other) {
 		if (other.tag == "Player") {
 						if (Input.GetButtonDown ("Use")) {
 								player.SendMessage ("IsNearCage", false);
 								Score playerScore = player.GetComponent<Score> ();
 								playerScore.addFriend ();
-								Destroy (this.gameObject);
+								this.gameObject.AddComponent ("Shrink");
+								///add explosion and noise here!
+								Destroy (this.gameObject, 0.26f);
 						}
 				}
 		}
