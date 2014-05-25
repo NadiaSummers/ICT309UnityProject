@@ -1,15 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Health.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PauseMenu.cs">
     <Files>
-      <File FileName="Assets\Scripts\PauseMenu.cs" Line="21" Column="4" />
+      <File FileName="Assets\Scripts\PauseMenu.cs" Line="37" Column="28" />
       <File FileName="Assets\Scripts\PlayerMovement.cs" Line="37" Column="39" />
-      <File FileName="Assets\Scripts\GameGUI.cs" Line="68" Column="3" />
+      <File FileName="Assets\Scripts\GameGUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Health.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Checkpoint.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraLook.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Cage.cs" Line="49" Column="1" />
+      <File FileName="Assets\Scripts\Cage.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

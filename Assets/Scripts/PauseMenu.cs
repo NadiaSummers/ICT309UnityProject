@@ -33,7 +33,8 @@ public class PauseMenu : MonoBehaviour {
 						}
 		
 						if (GUI.Button (new Rect (20, Screen.height - 100, 200, 61), quitGameButton)) {
-								Application.Quit ();
+							//Application.LoadLevel (0);
+							Application.Quit ();
 						}
 		}
 	}
