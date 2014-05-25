@@ -46,7 +46,11 @@ public class Health : MonoBehaviour {
 
 	public bool IsDead { get{ return currentHealth <= 0; } }
 
-
+	public void Reset()
+	{
+		currentHealth = maxHealth;
+		hasTakenDamage = false;
+	}
 
 	override public string ToString()
 	{

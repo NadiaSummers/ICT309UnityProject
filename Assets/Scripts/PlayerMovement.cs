@@ -4,7 +4,10 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	CharacterController controller;
-
+	GameObject playerGameObject;
+	Vector3 spawnPoint;
+	Health myHealth;
+	
 	public float moveSpeed = 18.0f;
 	public float jumpSpeed = 20.0f;
 	public float gravity = 0.7f;
@@ -15,10 +18,15 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController> ();
 		Screen.lockCursor = true;
+		playerGameObject = GameObject.FindGameObjectWithTag ("Player");
+		spawnPoint = playerGameObject.transform.position;
+		myHealth = playerGameObject.GetComponent<Health> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (myHealth.IsDead)
+				DoRespawn ();
 	
 		Vector3 direction = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 		Vector3 velocity = direction * moveSpeed;
@@ -40,6 +48,17 @@ public class PlayerMovement : MonoBehaviour {
 
 		velocity = transform.TransformDirection (velocity);
 		controller.Move (velocity * Time.deltaTime);
+	}
+
+	public void SetSpawn(Vector3 position)
+	{
+		spawnPoint = position;
+	}
+
+	public void DoRespawn()
+	{
+		playerGameObject.transform.position = spawnPoint;
+		myHealth.Reset ();
 	}
 
 }
