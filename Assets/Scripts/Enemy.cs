@@ -52,27 +52,25 @@ public class Enemy : MonoBehaviour
 		
 				Vector3 velocity = direction * moveSpeed;
 		
-				if (!controller.isGrounded) {
-						yVelocity -= gravity;
-				}
-		
-				velocity.y = yVelocity;
-		
-				direction.y = 0;
+
 
 				float homeDistance = Vector3.Distance (initialPosition, transform.position);
 
+				//if we're at our spawn
 				if (distance >= sightRange && homeDistance <= 2) {
 						animation.Play ("Idle_01");
 						targetInRange = false;
+						doGravity();
 				}
-				else if (distance >= sightRange && homeDistance > 2){
+				//if we should stop chasing and return home (because player has outpaced us or we're too far from home
+				else if (distance >= sightRange && homeDistance > 2 || homeDistance > (sightRange * 1.5)){
 						animation.Play ("Run");
 						targetInRange = false;
 						direction = initialPosition - transform.position;
 						direction.Normalize ();
 						velocity = direction * moveSpeed;
 						transform.rotation = Quaternion.LookRotation (direction);
+						doGravity();
 						controller.Move (velocity * Time.deltaTime);
 
 		}
@@ -86,6 +84,7 @@ public class Enemy : MonoBehaviour
 						if (!targetInRange)
 						{
 								transform.rotation = Quaternion.LookRotation (direction);
+								doGravity();
 								controller.Move (velocity * Time.deltaTime);
 								animation.Play ("Run");
 						} 
@@ -94,14 +93,28 @@ public class Enemy : MonoBehaviour
 								if (Time.time >= attackDelay)
 								{
 									animation.Play ("Attack_01");
-									animation.PlayQueued ("Idle_01", QueueMode.CompleteOthers);
+									yield WaitForSeconds (animation["Attack_01"].length);
+									//animation.PlayQueued ("Idle_01", QueueMode.CompleteOthers);
 									Health playerHealth = player.GetComponent<Health> ();
 									playerHealth.Damage (attackDamage);
 									attackDelay = Time.time + attackSpeed;
+									
 								}
 						}
 
 					}
-	}}
+	}
+	
+	private void doGravity()
+	{
+					if (!controller.isGrounded) {
+						yVelocity -= gravity;
+				}
+		
+				velocity.y = yVelocity;
+		
+				direction.y = 0;
+	}
+	}
 		
 
