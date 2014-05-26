@@ -34,6 +34,11 @@ public class Health : MonoBehaviour {
 		return currentHealth;
 	}
 
+	public void SetHealth(int health)
+	{
+		currentHealth = health;
+	}
+
 	public bool HasTakenDamage()
 	{
 		if (hasTakenDamage) {

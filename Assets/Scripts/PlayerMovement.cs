@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpSpeed = 20.0f;
 	public float gravity = 0.7f;
 	private float yVelocity = 0.0f;
+	private float speedTimer = 3.0f;
 
 
 	// Use this for initialization
@@ -61,4 +62,28 @@ public class PlayerMovement : MonoBehaviour {
 		myHealth.Reset ();
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "SpeedBoost") 
+		{
+			moveSpeed = moveSpeed * 2;
+			jumpSpeed = jumpSpeed * 2;
+			Invoke ("ResetSpeed", speedTimer);
+		} 
+		else if (other.gameObject.tag == "HealthBoost") 
+		{
+			if(myHealth.GetHealth() < 100)
+			{
+				myHealth.SetHealth(myHealth.GetHealth() + 20);
+				other.gameObject.SetActive(false);
+			}
+		}
+
+	}
+
+	public void ResetSpeed()
+	{
+		moveSpeed = 18.0f;
+		jumpSpeed = 20.0f;
+	}
 }
