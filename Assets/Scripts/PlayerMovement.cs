@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	GameObject playerGameObject;
 	Vector3 spawnPoint;
 	Health myHealth;
-	
+
 	public float moveSpeed = 18.0f;
 	public float jumpSpeed = 20.0f;
 	public float gravity = 0.7f;
@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void DoRespawn()
 	{
+		playerGameObject.SendMessage ("IsFadeTime", true);
 		playerGameObject.transform.position = spawnPoint;
 		myHealth.Reset ();
 	}

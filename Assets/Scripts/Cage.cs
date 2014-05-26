@@ -25,7 +25,7 @@ public class Cage : MonoBehaviour {
 								playerScore.addFriend ();
 								this.gameObject.AddComponent ("Shrink");
 								///add explosion and noise here!
-								Destroy (this.gameObject, 0.26f);
+								Destroy (this.gameObject, 0.24f);
 						}
 				}
 		}
