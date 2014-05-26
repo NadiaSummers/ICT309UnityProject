@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Screen.lockCursor = false;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	void OnGUI()
 	{
+		Screen.lockCursor = false;
 		GUI.skin = guiSkin;
 		if (GUI.Button (new Rect (20, Screen.height - 200, 200, 61), newGameButton)) {
 			Application.LoadLevel ("LevelOne");
